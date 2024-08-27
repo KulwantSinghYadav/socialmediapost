@@ -61,9 +61,29 @@ def index():
         # Convert Markdown to HTML
         ad_copy_html = md.render(ad_copy)
 
-        return render_template('index.html', ad_copy=ad_copy_html)
+        # Create Crew responsible for Image
+        senior_photographer = agents.senior_photographer_agent()
+        chief_creative_diretor = agents.chief_creative_diretor_agent()
+        # Create Tasks for Image
+        take_photo = tasks.take_photograph_task(senior_photographer, ad_copy, topic, product_description)
+        approve_photo = tasks.review_photo(chief_creative_diretor, topic, product_description)
 
-    return render_template('index.html', ad_copy=None)
+        image_crew = Crew(
+            agents=[
+                senior_photographer
+            ],
+            tasks=[
+                take_photo
+            ],
+            verbose=True
+        )
+
+        images = image_crew.kickoff()
+        images_html = md.render(images)
+
+        return render_template('index.html', ad_copy=ad_copy_html, images=images_html)
+
+    return render_template('index.html', ad_copy=None, images=None)
 
 if __name__ == '__main__':
     app.run(debug=True)

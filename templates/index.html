@@ -100,9 +100,17 @@
 
     <!-- Display the result if ad_copy is available -->
     {% if ad_copy %}
-        <h2>Here is the result:</h2>
+        <h2>Here is the ad copy:</h2>
         <div class="markdown-content">
             {{ ad_copy | safe }}
+        </div>
+    {% endif %}
+
+    <!-- Display the images if available -->
+    {% if images %}
+        <h2>Here are the images:</h2>
+        <div class="markdown-content">
+            {{ images | safe }}
         </div>
     {% endif %}
 
