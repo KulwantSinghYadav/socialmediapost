@@ -23,3 +23,9 @@ If you are selling a product or service in the mortgage space in Canada, your in
 
 The application will generate posts related to the latest news in the Canadian housing market and provide relevant images to accompany your social media content.
 
+
+## .env file
+**Pls make sure you have following details in your .env file**
+SERPER_API_KEY=Your Serper API Key
+OPENAI_API_KEY=Your Open AI API Key
+OPENAI_MODEL_NAME='OPEN AI model you want to use, default is gpt4o'
