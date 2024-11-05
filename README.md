@@ -29,3 +29,4 @@ The application will generate posts related to the latest news in the Canadian h
 SERPER_API_KEY=Your Serper API Key
 OPENAI_API_KEY=Your Open AI API Key
 OPENAI_MODEL_NAME='OPEN AI model you want to use, default is gpt4o'
+
